@@ -84,18 +84,6 @@ else
     TA = acos(dot(e,r)/(emag*rmag));
 end
 
-% RAANsubs = subs(RAAN,{x y z vx vy vz},{-3637871.08165087/DU 147099798.784179/DU -2261.44104198769/DU -30.2650979882182/VU -0.848685467901138/VU 5.05303606281563e-05/VU});
-% RAANeval = eval(RAANsubs)
-% AoPsubs = subs(AoP,{x y z vx vy vz},{-3637871.08165087/DU 147099798.784179/DU -2261.44104198769/DU -30.2650979882182/VU -0.848685467901138/VU 5.05303606281563e-05/VU});
-% AoPeval = eval(AoPsubs)
-% TAsubs = subs(TA,{x y z vx vy vz},{-3637871.08165087/DU 147099798.784179/DU -2261.44104198769/DU -30.2650979882182/VU -0.848685467901138/VU 5.05303606281563e-05/VU});
-% TAeval = eval(TAsubs)
-% emagsubs = subs(emag,{x y z vx vy vz},{-3637871.08165087/DU 147099798.784179/DU -2261.44104198769/DU -30.2650979882182/VU -0.848685467901138/VU 5.05303606281563e-05/VU});
-% emageval = eval(emagsubs)
-% asubs = subs(a,{x y z vx vy vz},{-3637871.08165087/DU 147099798.784179/DU -2261.44104198769/DU -30.2650979882182/VU -0.848685467901138/VU 5.05303606281563e-05/VU});
-% aeval = eval(asubs)
-% incsubs = subs(inc,{x y z vx vy vz},{-3637871.08165087/DU 147099798.784179/DU -2261.44104198769/DU -30.2650979882182/VU -0.848685467901138/VU 5.05303606281563e-05/VU});
-% inceval = eval(incsubs)
 % Defining MEE in terms of Orbital Elements ()
 p = a*(1 - emag^2);
 
@@ -108,8 +96,6 @@ hmee = tan(inc/2)*cos(RAAN);
 k = tan(inc/2)*sin(RAAN); 
 
 L = RAAN + AoP + TA;
-
-%r = [-3637871.08165087; 147099798.784179; -2261.44104198769];
 
 % Q matrix
 Q = [p; f; g; hmee; k; L];
@@ -566,16 +552,12 @@ x_quiver = x(1:n:end)/AU;
 y_quiver = y(1:n:end)/AU;
 z_quiver = z(1:n:end)/AU;
 
-% u_lvlh = [ur;ut;un];
-% for ii = 1:length(ur)
-%    u_cart(:,ii) = Q*u_lvlh(:,ii);
-% end
+% Control Profile
 ux = u_cart(1,:);
 uy = u_cart(2,:);
 uz = u_cart(3,:);
-%ux_quiver = ux(1:n:end)/AU;
-%uy_quiver = uy(1:n:end)/AU;
-%uz_quiver = uz(1:n:end)/AU;
+
+% Unit thrust steering vector
 ux_quiver = ur(1:n:end)/AU;
 uy_quiver = ut(1:n:end)/AU;
 uz_quiver = un(1:n:end)/AU;
