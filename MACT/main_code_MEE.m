@@ -99,9 +99,8 @@ L = RAAN + AoP + TA;
 
 % Q matrix
 Q = [p; f; g; hmee; k; L];
-% Qsubs = subs(Q,{x y z vx vy vz},{-3637871.08165087/DU 147099798.784179/DU -2261.44104198769/DU -30.2650979882182/VU -0.848685467901138/VU 5.05303606281563e-05/VU});
-% Qeval = eval(Qeval);
 
+% Q Derivative
 parQ = [diff(Q,x),diff(Q,y),diff(Q,z),diff(Q,vx),diff(Q,vy),diff(Q,vz)];
 
 parQsubs = subs(parQ,{x y z vx vy vz},{-3637871.08165087/DU 147099798.784179/DU -2261.44104198769/DU -30.2650979882182/VU -0.848685467901138/VU 5.05303606281563e-05/VU});
@@ -577,17 +576,6 @@ ylabel('m_f(kg)')
 hold on
 
 end_time = toc
-% %%     
-% figure(6)
-% plot(time,alpha)
-% title('alpha')
-% 
-% figure(7)
-% plot(time,beta)
-% title('beta')
-%%
-% for ii = 1:length(rho_arr)
-%     plot(rho_arr(ii),'r.')
-% end
+
 
 
