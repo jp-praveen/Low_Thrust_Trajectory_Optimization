@@ -7,10 +7,10 @@ clc
 close all
 
 tic
-%%
-%==========================================================================
-%Part - A: Mapping of Cartesian Costates to MEE costate using Symbolic vars
-%==========================================================================
+
+% =========================================================
+% Part - A: Mapping of Cartesian Costates to MEE costates 
+% =========================================================
 mu = 132712440018; % Sun gravitational constant (km^3/s^2)
 AU = 149.6e6;      % One astronomical unit (km)
 DU = AU;                      % Distance unit
